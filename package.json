@@ -10,10 +10,11 @@
     "type": "git",
     "url": "git+https://github.com/Kipris/frontend-project-lvl1.git"
   },
-  "author": "",
+  "author": "Maria Zakharova",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Kipris/frontend-project-lvl1/issues"
   },
-  "homepage": "https://github.com/Kipris/frontend-project-lvl1#readme"
+  "homepage": "https://github.com/Kipris/frontend-project-lvl1#readme",
+  "type": "module"
 }
