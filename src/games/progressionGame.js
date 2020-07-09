@@ -45,8 +45,8 @@ class ProgressionGame extends Game {
   executeGame() {
     const { updatedProgression: progression, correctAnswer } = generateProgression();
     console.log(`Question: ${progression}`);
-    this.answer = readlineSync.question('Your answer: ');
-    this.correctAnswer = correctAnswer;
+    this.answer = Number(readlineSync.question('Your answer: '));
+    this.correctAnswer = Number(correctAnswer);
   }
 }
 
