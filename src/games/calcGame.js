@@ -18,8 +18,8 @@ class CalcGame extends Game {
   executeGame() {
     const expression = getRandomExpression();
     console.log(`Question: ${expression}`);
-    this.answer = readlineSync.question('Your answer: ');
-    this.correctAnswer = calcExpression(expression);
+    this.answer = Number(readlineSync.question('Your answer: '));
+    this.correctAnswer = Number(calcExpression(expression));
   }
 }
 

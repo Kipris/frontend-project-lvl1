@@ -4,6 +4,7 @@ import EvenGame from './games/evenGame.js';
 import CalcGame from './games/calcGame.js';
 import GcdGame from './games/gcdGame.js';
 import ProgressionGame from './games/progressionGame.js';
+import PrimeGame from './games/primeGame.js';
 
 const createGame = (gameName) => {
   switch (gameName) {
@@ -11,6 +12,7 @@ const createGame = (gameName) => {
     case 'calc-game': return new CalcGame();
     case 'gcd-game': return new GcdGame();
     case 'progression-game': return new ProgressionGame();
+    case 'prime-game': return new PrimeGame();
     default: return false;
   }
 };
@@ -40,7 +42,6 @@ const startGame = (gameName) => {
     }
 
     game.executeGame();
-
     if (game.isAnswerCorrect()) {
       userScore += 1;
       console.log('Correct!');

@@ -6,24 +6,16 @@ class Game {
 
   // eslint-disable-next-line class-methods-use-this
   logConditions() {
-    console.log('What is the result of the expression?');
+    console.log('Condition text');
   }
 
   isAnswerCorrect() {
-    return Number(this.answer) === Number(this.correctAnswer);
+    return this.answer === this.correctAnswer;
   }
 
   getAnswers() {
     const { answer, correctAnswer } = this;
     return { answer, correctAnswer };
-  }
-
-  getWinner() {
-    return this.winner;
-  }
-
-  setWinner(winner) {
-    this.winner = winner;
   }
 }
 

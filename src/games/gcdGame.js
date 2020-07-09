@@ -26,8 +26,8 @@ class GcdGame extends Game {
     const firstNumber = getRandomNumber();
     const secondNumber = getRandomNumber();
     console.log(`Question: ${firstNumber} ${secondNumber}`);
-    this.answer = readlineSync.question('Your answer: ');
-    this.correctAnswer = getGcd(firstNumber, secondNumber);
+    this.answer = Number(readlineSync.question('Your answer: '));
+    this.correctAnswer = Number(getGcd(firstNumber, secondNumber));
   }
 }
 

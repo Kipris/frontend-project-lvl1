@@ -36,8 +36,12 @@ export const getRandomOperator = () => {
 
 export const getRandomExpression = () => `${getRandomNumber()} ${getRandomOperator()} ${getRandomNumber()}`;
 
+const has = (obj, prop) => Object.prototype.hasOwnProperty.call(obj, prop);
+
 export const calcExpression = (expression) => {
   const [operand1, operator, operand2] = expression.split(' ');
-  // if operations[operator] exists
-  return operations[operator](Number(operand1), Number(operand2));
+  if (has(operations, operator)) {
+    return operations[operator](Number(operand1), Number(operand2));
+  }
+  return 'Invalid operation';
 };
