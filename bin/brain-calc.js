@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 // eslint-disable-next-line import/extensions
-import readName from '../src/cli.js';
+import startGame from '../src/index.js';
 
-readName();
+startGame('calc-game');

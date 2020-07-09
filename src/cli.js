@@ -1,8 +1,7 @@
-import readlineSync from 'readline-sync';
+// eslint-disable-next-line import/extensions
+import { getUserName, greeting } from './common.js';
 
-const readName = () => {
-  const userName = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${userName}!`);
+export default () => {
+  const userName = getUserName();
+  greeting(userName);
 };
-
-export default readName;
