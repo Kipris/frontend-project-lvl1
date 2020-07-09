@@ -5,24 +5,19 @@ import { getRandomNumber, isEven } from '../common.js';
 
 const getCorrectAnswer = (number) => (isEven(number) ? 'yes' : 'no');
 
-class EvenGame extends Game {
-  constructor() {
-    super();
-    this.answer = '';
-    this.correctAnswer = '';
-  }
+const evenGame = new Game();
 
-  // eslint-disable-next-line class-methods-use-this
-  logConditions() {
-    console.log('Answer "yes" if the number is even, otherwise answer "no".');
-  }
+evenGame.logConditions = function logConditions() {
+  console.log('Answer "yes" if the number is even, otherwise answer "no".');
+};
 
-  executeGame() {
-    const number = getRandomNumber();
-    console.log(`Question: ${number}`);
-    this.answer = readlineSync.question('Your answer: ');
-    this.correctAnswer = getCorrectAnswer(number);
-  }
-}
+evenGame.executeGame = function executeGame() {
+  const number = getRandomNumber();
+  console.log(`Question: ${number}`);
+  const answer = readlineSync.question('Your answer: ');
+  const correctAnswer = getCorrectAnswer(number);
+  this.setAnswer(answer);
+  this.setCorrectAnswer(correctAnswer);
+};
 
-export default EvenGame;
+export default evenGame;

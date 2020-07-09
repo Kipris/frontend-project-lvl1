@@ -1,20 +1,17 @@
 /* eslint-disable import/extensions */
 import { getUserName, greeting } from './common.js';
-import EvenGame from './games/evenGame.js';
-import CalcGame from './games/calcGame.js';
-import GcdGame from './games/gcdGame.js';
-import ProgressionGame from './games/progressionGame.js';
-import PrimeGame from './games/primeGame.js';
+import evenGame from './games/evenGame.js';
+import calcGame from './games/calcGame.js';
+import gcdGame from './games/gcdGame.js';
+import progressionGame from './games/progressionGame.js';
+import primeGame from './games/primeGame.js';
 
-const createGame = (gameName) => {
-  switch (gameName) {
-    case 'even-game': return new EvenGame();
-    case 'calc-game': return new CalcGame();
-    case 'gcd-game': return new GcdGame();
-    case 'progression-game': return new ProgressionGame();
-    case 'prime-game': return new PrimeGame();
-    default: return false;
-  }
+const games = {
+  evenGame,
+  calcGame,
+  gcdGame,
+  progressionGame,
+  primeGame,
 };
 
 const logGameResults = (winner, userName) => {
@@ -28,7 +25,7 @@ const startGame = (gameName) => {
   const userName = getUserName();
   greeting(userName);
 
-  const game = createGame(gameName);
+  const game = games[gameName];
   game.logConditions();
 
   let userScore = 0;
@@ -46,7 +43,8 @@ const startGame = (gameName) => {
       userScore += 1;
       console.log('Correct!');
     } else {
-      const { answer, correctAnswer } = game.getAnswers();
+      const answer = game.getAnswer();
+      const correctAnswer = game.getCorrectAnswer();
       computerScore += 1;
       console.log(`"${answer}" is wrong answer ;(. Correct answer was "${correctAnswer}".`);
       console.log(`Let's try again, ${userName}!`);

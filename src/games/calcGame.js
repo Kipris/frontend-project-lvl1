@@ -3,24 +3,19 @@ import readlineSync from 'readline-sync';
 import Game from './game.js';
 import { getRandomExpression, calcExpression } from '../common.js';
 
-class CalcGame extends Game {
-  constructor() {
-    super();
-    this.answer = '';
-    this.correctAnswer = '';
-  }
+const calcGame = new Game();
 
-  // eslint-disable-next-line class-methods-use-this
-  logConditions() {
-    console.log('What is the result of the expression?');
-  }
+calcGame.logConditions = function logConditions() {
+  console.log('What is the result of the expression?');
+};
 
-  executeGame() {
-    const expression = getRandomExpression();
-    console.log(`Question: ${expression}`);
-    this.answer = Number(readlineSync.question('Your answer: '));
-    this.correctAnswer = Number(calcExpression(expression));
-  }
-}
+calcGame.executeGame = function executeGame() {
+  const expression = getRandomExpression();
+  console.log(`Question: ${expression}`);
+  const answer = readlineSync.question('Your answer: ');
+  const correctAnswer = calcExpression(expression);
+  this.setAnswer(Number(answer));
+  this.setCorrectAnswer(Number(correctAnswer));
+};
 
-export default CalcGame;
+export default calcGame;

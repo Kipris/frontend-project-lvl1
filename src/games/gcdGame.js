@@ -10,25 +10,20 @@ const getGcd = (firstNumber, secondNumber) => {
   return getGcd(secondNumber, firstNumber % secondNumber);
 };
 
-class GcdGame extends Game {
-  constructor() {
-    super();
-    this.answer = '';
-    this.correctAnswer = '';
-  }
+const gcdGame = new Game();
 
-  // eslint-disable-next-line class-methods-use-this
-  logConditions() {
-    console.log('Find the greatest common divisor of given numbers.');
-  }
+gcdGame.logConditions = function logConditions() {
+  console.log('Find the greatest common divisor of given numbers.');
+};
 
-  executeGame() {
-    const firstNumber = getRandomNumber();
-    const secondNumber = getRandomNumber();
-    console.log(`Question: ${firstNumber} ${secondNumber}`);
-    this.answer = Number(readlineSync.question('Your answer: '));
-    this.correctAnswer = Number(getGcd(firstNumber, secondNumber));
-  }
-}
+gcdGame.executeGame = function executeGame() {
+  const firstNumber = getRandomNumber();
+  const secondNumber = getRandomNumber();
+  console.log(`Question: ${firstNumber} ${secondNumber}`);
+  const answer = readlineSync.question('Your answer: ');
+  const correctAnswer = getGcd(firstNumber, secondNumber);
+  this.setAnswer(Number(answer));
+  this.setCorrectAnswer(Number(correctAnswer));
+};
 
-export default GcdGame;
+export default gcdGame;

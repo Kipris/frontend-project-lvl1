@@ -17,25 +17,19 @@ const isPrime = (number) => {
 
 const getCorrectAnswer = (number) => (isPrime(number) ? 'yes' : 'no');
 
-class PrimeGame extends Game {
-  constructor() {
-    super();
-    this.answer = '';
-    this.correctAnswer = '';
-  }
+const primeGame = new Game();
 
-  // eslint-disable-next-line class-methods-use-this
-  logConditions() {
-    console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
-  }
+primeGame.logConditions = function logConditions() {
+  console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
+};
 
-  // eslint-disable-next-line class-methods-use-this
-  executeGame() {
-    const number = getRandomNumber();
-    console.log(`Question: ${number}`);
-    this.answer = readlineSync.question('Your answer: ');
-    this.correctAnswer = getCorrectAnswer(number);
-  }
-}
+primeGame.executeGame = function executeGame() {
+  const number = getRandomNumber();
+  console.log(`Question: ${number}`);
+  const answer = readlineSync.question('Your answer: ');
+  const correctAnswer = getCorrectAnswer(number);
+  this.setAnswer(answer);
+  this.setCorrectAnswer(correctAnswer);
+};
 
-export default PrimeGame;
+export default primeGame;

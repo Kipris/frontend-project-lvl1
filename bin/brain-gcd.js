@@ -2,4 +2,4 @@
 // eslint-disable-next-line import/extensions
 import startGame from '../src/index.js';
 
-startGame('gcd-game');
+startGame('gcdGame');
