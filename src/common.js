@@ -10,7 +10,9 @@ export const greeting = (userName) => {
   console.log(`Hello, ${userName}!`);
 };
 
-export const getRandonNumber = () => Math.floor(Math.random() * 3);
+export const getRandonNumber = (min = 1, max = 100) => (
+  Math.floor(Math.random() * (max - min + 1)) + min
+);
 
 export const isEven = (number) => number % 2 === 0;
 
@@ -38,10 +40,4 @@ export const calcExpression = (expression) => {
   const [operand1, operator, operand2] = expression.split(' ');
   // if operations[operator] exists
   return operations[operator](Number(operand1), Number(operand2));
-  // switch (operator) {
-  //   case '+': return operand1 + operand2;
-  //   case '-': return operand1 - operand2;
-  //   case '*': return operand1 * operand2;
-  //   default: return 'Invalid expression';
-  // }
 };
