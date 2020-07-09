@@ -1,13 +1,13 @@
 /* eslint-disable import/extensions */
 import readlineSync from 'readline-sync';
 import Game from './game.js';
-import { getRandonNumber } from '../common.js';
+import { getRandomNumber } from '../common.js';
 
-const getCorrectAnswer = (firstNumber, secondNumber) => {
+const getGcd = (firstNumber, secondNumber) => {
   if (!secondNumber) {
     return firstNumber;
   }
-  return getCorrectAnswer(secondNumber, firstNumber % secondNumber);
+  return getGcd(secondNumber, firstNumber % secondNumber);
 };
 
 class GcdGame extends Game {
@@ -23,11 +23,11 @@ class GcdGame extends Game {
   }
 
   executeGame() {
-    const firstNumber = getRandonNumber();
-    const secondNumber = getRandonNumber();
+    const firstNumber = getRandomNumber();
+    const secondNumber = getRandomNumber();
     console.log(`Question: ${firstNumber} ${secondNumber}`);
     this.answer = readlineSync.question('Your answer: ');
-    this.correctAnswer = getCorrectAnswer(firstNumber, secondNumber);
+    this.correctAnswer = getGcd(firstNumber, secondNumber);
   }
 }
 

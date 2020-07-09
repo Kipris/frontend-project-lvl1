@@ -1,7 +1,7 @@
 /* eslint-disable import/extensions */
 import readlineSync from 'readline-sync';
 import Game from './game.js';
-import { getRandonNumber, isEven } from '../common.js';
+import { getRandomNumber, isEven } from '../common.js';
 
 const getCorrectAnswer = (number) => (isEven(number) ? 'yes' : 'no');
 
@@ -18,7 +18,7 @@ class EvenGame extends Game {
   }
 
   executeGame() {
-    const number = getRandonNumber();
+    const number = getRandomNumber();
     console.log(`Question: ${number}`);
     this.answer = readlineSync.question('Your answer: ');
     this.correctAnswer = getCorrectAnswer(number);

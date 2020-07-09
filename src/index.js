@@ -3,12 +3,14 @@ import { getUserName, greeting } from './common.js';
 import EvenGame from './games/evenGame.js';
 import CalcGame from './games/calcGame.js';
 import GcdGame from './games/gcdGame.js';
+import ProgressionGame from './games/progressionGame.js';
 
 const createGame = (gameName) => {
   switch (gameName) {
     case 'even-game': return new EvenGame();
     case 'calc-game': return new CalcGame();
     case 'gcd-game': return new GcdGame();
+    case 'progression-game': return new ProgressionGame();
     default: return false;
   }
 };

@@ -10,7 +10,7 @@ export const greeting = (userName) => {
   console.log(`Hello, ${userName}!`);
 };
 
-export const getRandonNumber = (min = 1, max = 100) => (
+export const getRandomNumber = (min = 1, max = 100) => (
   Math.floor(Math.random() * (max - min + 1)) + min
 );
 
@@ -34,7 +34,7 @@ export const getRandomOperator = () => {
   return operators[index];
 };
 
-export const getRandomExpression = () => `${getRandonNumber()} ${getRandomOperator()} ${getRandonNumber()}`;
+export const getRandomExpression = () => `${getRandomNumber()} ${getRandomOperator()} ${getRandomNumber()}`;
 
 export const calcExpression = (expression) => {
   const [operand1, operator, operand2] = expression.split(' ');
