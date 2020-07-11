@@ -21,6 +21,9 @@
   },
   "homepage": "https://github.com/Kipris/frontend-project-lvl1#readme",
   "type": "module",
+  "engines": { 
+    "node": ">=12.18.2" 
+  },
   "bin": {
     "brain-games": "bin/brain-games.js",
     "brain-even": "bin/brain-even.js",
