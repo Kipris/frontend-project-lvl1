@@ -1,7 +1,7 @@
 /* eslint-disable import/extensions */
 import readlineSync from 'readline-sync';
 import Game from './game.js';
-import { getRandomNumber } from '../common.js';
+import { getRandomNumber } from '../utils.js';
 
 const getGcd = (firstNumber, secondNumber) => {
   if (!secondNumber) {

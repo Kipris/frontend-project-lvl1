@@ -1,7 +1,7 @@
 /* eslint-disable import/extensions */
 import readlineSync from 'readline-sync';
 import Game from './game.js';
-import { getRandomNumber, isEven } from '../common.js';
+import { getRandomNumber, isEven } from '../utils.js';
 
 const getCorrectAnswer = (number) => (isEven(number) ? 'yes' : 'no');
 

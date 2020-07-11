@@ -1,5 +1,5 @@
 /* eslint-disable import/extensions */
-import { getUserName, greeting } from './common.js';
+import { getUserName, greeting } from './utils.js';
 import evenGame from './games/evenGame.js';
 import calcGame from './games/calcGame.js';
 import gcdGame from './games/gcdGame.js';
