@@ -1,41 +1,36 @@
-import readlineSync from 'readline-sync';
-import Game from './game.js';
+import gameEngine from '../index.js';
 import { getRandomNumber } from '../utils.js';
 
-const progressionGame = new Game();
+const conditions = 'What number is missing in the progression?';
 
-progressionGame.logConditions = function logConditions() {
-  console.log('What number is missing in the progression?');
+const hideNum = (progression) => {
+	const updatedProgression = [...progression];
+	const hiddenIndex = getRandomNumber(0, progression.length - 1);
+	const correctAnswer = String(progression[hiddenIndex]);
+	updatedProgression[hiddenIndex] = '..';
+	return { progression: updatedProgression, correctAnswer };
 };
 
-progressionGame.executeGame = function executeGame() {
-  this.generateProgression();
-  console.log(`Question: ${this.progression}`);
-  const answer = readlineSync.question('Your answer: ');
-  this.setAnswer(Number(answer));
+const generateProgression = () => {
+	const startNum = getRandomNumber(1, 20);
+	const progressionStep = getRandomNumber(1, 10);
+	const progression = [];
+	let currentLength = 0;
+	let currentValue = startNum;
+	while (currentLength < 10) {
+		progression.push(currentValue);
+		currentValue += progressionStep;
+		currentLength += 1;
+	}
+	const { progression: updatedProgression, correctAnswer } = hideNum(progression);
+	return { progression: String(updatedProgression), correctAnswer };
 };
 
-progressionGame.generateProgression = function generateProgression() {
-  const startNum = getRandomNumber(1, 20);
-  const progressionStep = getRandomNumber(1, 10);
-  const progression = [];
-  let currentLength = 0;
-  let currentValue = startNum;
-  while (currentLength < 10) {
-    progression.push(currentValue);
-    currentValue += progressionStep;
-    currentLength += 1;
-  }
-  this.progression = progression;
-  this.hideNum();
-  this.progression = String(this.progression);
+const executeGame = () => {
+	const { progression, correctAnswer } = generateProgression();
+	return { question: progression, correctAnswer };
 };
 
-progressionGame.hideNum = function hideNum() {
-  const hiddenIndex = getRandomNumber(0, this.progression.length - 1);
-  const correctAnswer = this.progression[hiddenIndex];
-  this.setCorrectAnswer(Number(correctAnswer));
-  this.progression[hiddenIndex] = '..';
-};
+const progressionGame = () => gameEngine(conditions, executeGame);
 
 export default progressionGame;

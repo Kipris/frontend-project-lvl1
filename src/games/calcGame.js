@@ -1,20 +1,14 @@
-import readlineSync from 'readline-sync';
-import Game from './game.js';
+import gameEngine from '../index.js';
 import { getRandomExpression, calcExpression } from '../utils.js';
 
-const calcGame = new Game();
+const conditions = 'What is the result of the expression?';
 
-calcGame.logConditions = function logConditions() {
-  console.log('What is the result of the expression?');
+const executeGame = () => {
+	const expression = getRandomExpression();
+	const correctAnswer = String(calcExpression(expression));
+	return { question: expression, correctAnswer };
 };
 
-calcGame.executeGame = function executeGame() {
-  const expression = getRandomExpression();
-  console.log(`Question: ${expression}`);
-  const answer = readlineSync.question('Your answer: ');
-  const correctAnswer = calcExpression(expression);
-  this.setAnswer(Number(answer));
-  this.setCorrectAnswer(Number(correctAnswer));
-};
+const calcGame = () => gameEngine(conditions, executeGame);
 
 export default calcGame;
