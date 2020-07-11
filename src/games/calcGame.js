@@ -1,4 +1,3 @@
-/* eslint-disable import/extensions */
 import readlineSync from 'readline-sync';
 import Game from './game.js';
 import { getRandomExpression, calcExpression } from '../utils.js';

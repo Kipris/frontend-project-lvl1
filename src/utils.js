@@ -1,4 +1,3 @@
-/* eslint-disable func-names */
 import readlineSync from 'readline-sync';
 
 export const getUserName = () => {

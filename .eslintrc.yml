@@ -6,3 +6,5 @@ env:
 
 rules:
   no-console: 0
+  import/extensions:
+    js: 'always'
