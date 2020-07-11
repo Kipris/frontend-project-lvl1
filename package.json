@@ -1,7 +1,11 @@
 {
   "name": "frontend-project-lvl1",
   "version": "1.0.0",
-  "description": "Brain games",
+  "description": "Brain games is a set of five console games built on the principle of popular mobile brain pumping apps.",
+  "keywords": [
+    "brain games",
+    "javascript console games"
+  ],
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -26,9 +30,11 @@
     "brain-prime": "bin/brain-prime.js"
   },
   "dependencies": {
+    "readline-sync": "^1.4.10"
+  },
+  "devDependencies": {
     "eslint": "^7.4.0",
     "eslint-config-airbnb-base": "^14.2.0",
-    "eslint-plugin-import": "^2.22.0",
-    "readline-sync": "^1.4.10"
+    "eslint-plugin-import": "^2.22.0"
   }
 }

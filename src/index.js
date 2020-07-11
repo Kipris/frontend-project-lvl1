@@ -1,56 +1,36 @@
 import { getUserName, greeting } from './utils.js';
-import evenGame from './games/evenGame.js';
-import calcGame from './games/calcGame.js';
-import gcdGame from './games/gcdGame.js';
-import progressionGame from './games/progressionGame.js';
-import primeGame from './games/primeGame.js';
 
-const games = {
-  evenGame,
-  calcGame,
-  gcdGame,
-  progressionGame,
-  primeGame,
+const logGameResults = (userName) => {
+  console.log(`Congratulations, ${userName}!`);
 };
 
-const logGameResults = (winner, userName) => {
-  const gameResults = winner === 'user'
-    ? `Congratulations, ${userName}!`
-    : `You loose, ${userName}!`;
-  console.log(gameResults);
-};
+const logRoundResult = (answer, correctAnswer, userName) => {
+  if (answer === correctAnswer) {
+    console.log('Correct!');
+  } else {
+    console.log(`"${answer}" is wrong answer ;(. Correct answer was "${correctAnswer}".`);
+    console.log(`Let's try again, ${userName}!`);
+    return;
+  }
+}
 
-const startGame = (gameName) => {
+const gameEngine = (conditions, executeGame) => {
   const userName = getUserName();
   greeting(userName);
-
-  const game = games[gameName];
-  game.logConditions();
-
-  let userScore = 0;
-  let computerScore = 0;
+  console.log(conditions);
   const maxRoundsCount = 3;
   const doGameRound = (roundsCount) => {
     if (roundsCount === maxRoundsCount) {
-      const winner = userScore > computerScore ? 'user' : 'computer';
-      logGameResults(winner, userName);
+      logGameResults(userName);
       return;
     }
-
-    game.executeGame();
-    if (game.isAnswerCorrect()) {
-      userScore += 1;
-      console.log('Correct!');
-    } else {
-      const answer = game.getAnswer();
-      const correctAnswer = game.getCorrectAnswer();
-      computerScore += 1;
-      console.log(`"${answer}" is wrong answer ;(. Correct answer was "${correctAnswer}".`);
-      console.log(`Let's try again, ${userName}!`);
-    }
+    const { question, correctAnswer } = executeGame();
+    console.log(`Question: ${question}`);
+    const answer = readlineSync.question('Your answer: ');
+    logRoundResult(answer, correctAnswer, userName);
     doGameRound(roundsCount + 1);
   };
   doGameRound(0);
 };
 
-export default startGame;
+export default gameEngine;
