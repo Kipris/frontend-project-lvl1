@@ -23,7 +23,7 @@ const generateProgression = () => {
 		currentLength += 1;
 	}
 	const { progression: updatedProgression, correctAnswer } = hideNum(progression);
-	return { progression: String(updatedProgression), correctAnswer };
+	return { progression: updatedProgression.join(', '), correctAnswer };
 };
 
 const executeGame = () => {

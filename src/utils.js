@@ -16,14 +16,14 @@ export const getRandomNumber = (min = 1, max = 100) => (
 export const isEven = (number) => number % 2 === 0;
 
 const operations = {
-	'+': function (op1, op2) {
-		return op1 + op2;
+	'+': function (firstOperand, secondOperand) {
+		return firstOperand + secondOperand;
 	},
-	'-': function (op1, op2) {
-		return op1 - op2;
+	'-': function (firstOperand, secondOperand) {
+		return firstOperand - secondOperand;
 	},
-	'*': function (op1, op2) {
-		return op1 * op2;
+	'*': function (firstOperand, secondOperand) {
+		return firstOperand * secondOperand;
 	},
 };
 
@@ -38,9 +38,12 @@ export const getRandomExpression = () => `${getRandomNumber()} ${getRandomOperat
 const has = (obj, prop) => Object.prototype.hasOwnProperty.call(obj, prop);
 
 export const calcExpression = (expression) => {
-	const [operand1, operator, operand2] = expression.split(' ');
+	const [firstOperand, operator, secondOperand] = expression.split(' ');
 	if (has(operations, operator)) {
-		return operations[operator](Number(operand1), Number(operand2));
+		return operations[operator](
+			Number(firstOperand),
+			Number(secondOperand),
+		);
 	}
 	return 'Invalid operation';
 };
