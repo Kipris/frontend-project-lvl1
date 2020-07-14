@@ -1,14 +1,14 @@
 import gameEngine from '../index.js';
 import { getRandomExpression, calcExpression } from '../utils.js';
 
-const conditions = 'What is the result of the expression?';
+const condition = 'What is the result of the expression?';
 
-const executeGame = () => {
-	const expression = getRandomExpression();
-	const correctAnswer = String(calcExpression(expression));
-	return { question: expression, correctAnswer };
+const getQuestionAndCorrectAnswer = () => {
+  const question = getRandomExpression();
+  const correctAnswer = String(calcExpression(question));
+  return { question, correctAnswer };
 };
 
-const calcGame = () => gameEngine(conditions, executeGame);
+const calcGame = () => gameEngine(condition, getQuestionAndCorrectAnswer);
 
 export default calcGame;

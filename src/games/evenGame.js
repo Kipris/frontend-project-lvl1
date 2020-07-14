@@ -3,14 +3,14 @@ import { getRandomNumber, isEven } from '../utils.js';
 
 const getCorrectAnswer = (number) => (isEven(number) ? 'yes' : 'no');
 
-const conditions = 'Answer "yes" if the number is even, otherwise answer "no".';
+const condition = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-const executeGame = () => {
-	const number = getRandomNumber();
-	const correctAnswer = getCorrectAnswer(number);
-	return { question: number, correctAnswer };
+const getQuestionAndCorrectAnswer = () => {
+  const question = getRandomNumber();
+  const correctAnswer = getCorrectAnswer(question);
+  return { question, correctAnswer };
 };
 
-const evenGame = () => gameEngine(conditions, executeGame);
+const evenGame = () => gameEngine(condition, getQuestionAndCorrectAnswer);
 
 export default evenGame;
