@@ -1,5 +1,7 @@
 import gameEngine from '../index.js';
-import { getRandomNumber, isEven } from '../utils.js';
+import getRandomNumber from '../utils.js';
+
+const isEven = (number) => number % 2 === 0;
 
 const getCorrectAnswer = (number) => (isEven(number) ? 'yes' : 'no');
 

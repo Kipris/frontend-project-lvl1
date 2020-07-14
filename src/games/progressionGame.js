@@ -1,12 +1,12 @@
 import gameEngine from '../index.js';
-import { getRandomNumber } from '../utils.js';
+import getRandomNumber from '../utils.js';
 
 const condition = 'What number is missing in the progression?';
 
-const generateProgression = (startNum, progressionStep) => {
+const generateProgression = (startNumber, progressionStep) => {
   const progression = [];
   let currentLength = 0;
-  let currentValue = startNum;
+  let currentValue = startNumber;
   while (currentLength < 10) {
     progression.push(currentValue);
     currentValue += progressionStep;
