@@ -1,16 +1,14 @@
 import gameEngine from '../index.js';
-import getRandomNumber from '../utils.js';
+import { getRandomNumber } from '../utils.js';
 
-const condition = 'What number is missing in the progression?';
+const description = 'What number is missing in the progression?';
 
-const generateProgression = (startNumber, progressionStep) => {
+const generateProgression = (startNumber, progressionStep, maxProgressionLength = 10) => {
   const progression = [];
-  let currentLength = 0;
-  let currentValue = startNumber;
-  while (currentLength < 10) {
-    progression.push(currentValue);
-    currentValue += progressionStep;
-    currentLength += 1;
+  for (let i = 0, number = startNumber;
+    i < maxProgressionLength;
+    i += 1, number += progressionStep) {
+    progression.push(number);
   }
   return progression;
 };
@@ -18,19 +16,20 @@ const generateProgression = (startNumber, progressionStep) => {
 const getQuestion = (progression, indexToHide) => {
   const updatedProgression = [...progression];
   updatedProgression[indexToHide] = '..';
-  return updatedProgression.join(', ');
+  return updatedProgression.join(' ');
 };
 
-const getQuestionAndCorrectAnswer = () => {
+const getRoundInfo = () => {
   const startNum = getRandomNumber(1, 20);
   const progressionStep = getRandomNumber(1, 10);
   const progression = generateProgression(startNum, progressionStep);
   const indexToHide = getRandomNumber(0, progression.length - 1);
   const question = getQuestion(progression, indexToHide);
   const correctAnswer = String(progression[indexToHide]);
+  // console.log(question, correctAnswer);
   return { question, correctAnswer };
 };
 
-const progressionGame = () => gameEngine(condition, getQuestionAndCorrectAnswer);
+const startProgressionGame = () => gameEngine(description, getRoundInfo);
 
-export default progressionGame;
+export default startProgressionGame;

@@ -3,7 +3,7 @@
 
 # Brain games
 
-Brain games is a set of five console games built on the principle of popular mobile brain pumping apps. Each game asks a questions that needs to be answered correctly. After three correct answers it is considered that the game is over. Wrong answers complete the game and offer to pass it again.
+Brain games is a set of five console games built on the principle of popular brain pumping apps. Each game asks a questions that needs to be answered correctly. After three correct answers it is considered that the game is over. Wrong answers complete the game and offer to pass it again.
 
 ## Installation
 
