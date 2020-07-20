@@ -1,4 +1,4 @@
-import gameEngine from '../index.js';
+import launchGameEngine from '../index.js';
 import { getRandomNumber } from '../utils.js';
 
 const isPrime = (number) => {
@@ -23,6 +23,6 @@ const getRoundInfo = () => {
   return { question, correctAnswer };
 };
 
-const startPrimeGame = () => gameEngine(description, getRoundInfo);
+const startPrimeGame = () => launchGameEngine(description, getRoundInfo);
 
 export default startPrimeGame;

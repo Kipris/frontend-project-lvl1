@@ -1,4 +1,4 @@
-import gameEngine from '../index.js';
+import launchGameEngine from '../index.js';
 import { getRandomNumber } from '../utils.js';
 
 const getGcd = (firstNumber, secondNumber) => (
@@ -15,6 +15,6 @@ const getRoundInfo = () => {
   return { question, correctAnswer };
 };
 
-const startGcdGame = () => gameEngine(description, getRoundInfo);
+const startGcdGame = () => launchGameEngine(description, getRoundInfo);
 
 export default startGcdGame;

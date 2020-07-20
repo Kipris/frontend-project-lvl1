@@ -1,4 +1,4 @@
-import gameEngine from '../index.js';
+import launchGameEngine from '../index.js';
 import { getRandomNumber } from '../utils.js';
 
 const isEven = (number) => number % 2 === 0;
@@ -13,6 +13,6 @@ const getRoundInfo = () => {
   return { question, correctAnswer };
 };
 
-const startEvenGame = () => gameEngine(description, getRoundInfo);
+const startEvenGame = () => launchGameEngine(description, getRoundInfo);
 
 export default startEvenGame;

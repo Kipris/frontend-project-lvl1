@@ -1,4 +1,4 @@
-import gameEngine from '../index.js';
+import launchGameEngine from '../index.js';
 import { getRandomNumber } from '../utils.js';
 
 const description = 'What number is missing in the progression?';
@@ -26,10 +26,9 @@ const getRoundInfo = () => {
   const indexToHide = getRandomNumber(0, progression.length - 1);
   const question = getQuestion(progression, indexToHide);
   const correctAnswer = String(progression[indexToHide]);
-  // console.log(question, correctAnswer);
   return { question, correctAnswer };
 };
 
-const startProgressionGame = () => gameEngine(description, getRoundInfo);
+const startProgressionGame = () => launchGameEngine(description, getRoundInfo);
 
 export default startProgressionGame;

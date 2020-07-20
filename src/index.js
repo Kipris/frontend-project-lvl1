@@ -1,17 +1,14 @@
 import readlineSync from 'readline-sync';
-import { getUserName, logGreeting } from './utils.js';
+import { getUserName } from './utils.js';
 
+const MAX_ROUNDS_COUNT = 3;
 const isAnswerCorrect = (answer, correctAnswer) => answer === correctAnswer;
 
-const gameEngine = (description, getRoundInfo, maxRoundsCount = 3) => {
+const launchGameEngine = (description, getRoundInfo, maxRoundsCount = MAX_ROUNDS_COUNT) => {
   const userName = getUserName();
-  logGreeting(userName);
+  console.log(`Hello, ${userName}!`);
   console.log(description);
   for (let currentRound = 1; currentRound <= maxRoundsCount; currentRound += 1) {
-    if (currentRound > maxRoundsCount) {
-      console.log(`Congratulations, ${userName}!`);
-      return;
-    }
     const { question, correctAnswer } = getRoundInfo();
     console.log(`Question: ${question}`);
     const answer = readlineSync.question('Your answer: ');
@@ -22,6 +19,7 @@ const gameEngine = (description, getRoundInfo, maxRoundsCount = 3) => {
     }
     console.log('Correct!');
   }
+  console.log(`Congratulations, ${userName}!`);
 };
 
-export default gameEngine;
+export default launchGameEngine;

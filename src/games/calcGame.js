@@ -1,4 +1,4 @@
-import gameEngine from '../index.js';
+import launchGameEngine from '../index.js';
 import { getRandomNumber } from '../utils.js';
 
 const description = 'What is the result of the expression?';
@@ -37,6 +37,6 @@ const getRoundInfo = () => {
   return { question, correctAnswer };
 };
 
-const startCalcGame = () => gameEngine(description, getRoundInfo);
+const startCalcGame = () => launchGameEngine(description, getRoundInfo);
 
 export default startCalcGame;
