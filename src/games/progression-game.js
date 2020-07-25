@@ -1,9 +1,14 @@
 import launchGameEngine from '../index.js';
 import { getRandomNumber } from '../utils.js';
 
+const MAX_PROGRESSION_LENGTH = 10;
 const description = 'What number is missing in the progression?';
 
-const generateProgression = (startNumber, progressionStep, maxProgressionLength = 10) => {
+const generateProgression = (
+  startNumber,
+  progressionStep,
+  maxProgressionLength = MAX_PROGRESSION_LENGTH,
+) => {
   const progression = [];
   for (let i = 0, number = startNumber;
     i < maxProgressionLength;
