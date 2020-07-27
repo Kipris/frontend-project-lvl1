@@ -1,5 +1,5 @@
 import launchGameEngine from '../index.js';
-import { getRandomNumber } from '../utils.js';
+import getRandomNumber from '../utils.js';
 
 const getGcd = (firstNumber, secondNumber) => (
   secondNumber === 0 ? firstNumber : getGcd(secondNumber, firstNumber % secondNumber)

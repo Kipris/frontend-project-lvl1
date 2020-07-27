@@ -1,5 +1,5 @@
 import launchGameEngine from '../index.js';
-import { getRandomNumber } from '../utils.js';
+import getRandomNumber from '../utils.js';
 
 const description = 'What is the result of the expression?';
 
@@ -10,10 +10,10 @@ const mapOperatorToOperation = {
 };
 
 const calculateExpression = (firstOperand, operator, secondOperand) => (
-  String(mapOperatorToOperation[operator](
+  mapOperatorToOperation[operator](
     firstOperand,
     secondOperand,
-  ))
+  )
 );
 
 const getRandomOperator = () => {
@@ -23,17 +23,12 @@ const getRandomOperator = () => {
   return operators[index];
 };
 
-const getRandomExpression = () => {
+const getRoundInfo = () => {
   const firstOperand = getRandomNumber();
   const secondOperand = getRandomNumber();
   const operator = getRandomOperator();
-  return { firstOperand, operator, secondOperand };
-};
-
-const getRoundInfo = () => {
-  const { firstOperand, operator, secondOperand } = getRandomExpression();
   const question = `${firstOperand} ${operator} ${secondOperand}`;
-  const correctAnswer = calculateExpression(firstOperand, operator, secondOperand);
+  const correctAnswer = String(calculateExpression(firstOperand, operator, secondOperand));
   return { question, correctAnswer };
 };
 

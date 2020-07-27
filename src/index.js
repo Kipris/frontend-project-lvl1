@@ -1,11 +1,11 @@
 import readlineSync from 'readline-sync';
-import { getUserName } from './utils.js';
 
 const MAX_ROUNDS_COUNT = 3;
 const isAnswerCorrect = (answer, correctAnswer) => answer === correctAnswer;
 
 const launchGameEngine = (description, getRoundInfo, maxRoundsCount = MAX_ROUNDS_COUNT) => {
-  const userName = getUserName();
+  console.log('Welcome to the Brain Games!');
+  const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
   console.log(description);
   for (let currentRound = 1; currentRound <= maxRoundsCount; currentRound += 1) {
