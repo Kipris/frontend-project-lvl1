@@ -1,5 +1,5 @@
 import launchGameEngine from '../index.js';
-import getRandomNumber from '../utils.js';
+import { getRandomNumber } from '../utils.js';
 
 const MAX_PROGRESSION_LENGTH = 10;
 const description = 'What number is missing in the progression?';
